@@ -26,6 +26,7 @@ class ImageCreator():
         with rosbag.Bag(filename, 'r') as bag:
             timestr_last = 0
             for topic, msg, t in bag.read_messages():
+                # if topic == "/cv_camera/image_raw": # topic na robocie w M321
                 if topic == "/usb_cam/image_raw":
                     try:
                         cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")

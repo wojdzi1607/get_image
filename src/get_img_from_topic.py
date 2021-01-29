@@ -23,6 +23,7 @@ def image_callback(msg):
 def main():
     rospy.init_node('image_listener')
     image_topic = "/usb_cam/image_raw"
+    # image_topic = "/cv_camera/image_raw" # topic na robocie w M321
     rospy.Subscriber(image_topic, Image, image_callback)
     rospy.spin()
 
